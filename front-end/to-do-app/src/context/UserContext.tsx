@@ -6,13 +6,13 @@ const UserContext = createContext<User | null>(null);
 const UserContextDispatcher = createContext<React.Dispatch<Action>>(()=>{});
 
 type Action = {
-    type:"Sign-in" | "Sign-out",
+    type:"sign-in" | "sign-out",
     [properties:string]:any
 }
 
 function userReducer(user:User,action:Action){
 
-    if (action.type === 'Sign-in'){
+    if (action.type === 'sign-in'){
         return action.user;
     }else {
         return null;
@@ -22,6 +22,7 @@ function userReducer(user:User,action:Action){
 
 export function UserProvider({children}:{children:ReactNode}){
     const [user,userDispatcher] = useReducer(userReducer,null);
+
         return (
             <UserContext.Provider value={user}>
                 <UserContextDispatcher.Provider value={userDispatcher}>

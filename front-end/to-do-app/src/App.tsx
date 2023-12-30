@@ -1,33 +1,42 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {onAuthStateChanged} from 'firebase/auth';
-import {useEffect} from "react";
+import {useEffect, useRef, useState} from "react";
 import {auth} from "./firebase.ts";
 import {SignIn} from "./sign-in/SignIn.tsx";
 import {useUser, useUserDispatcher} from "./context/UserContext.tsx";
+import {Loader} from "./loader/Loader.tsx";
 
 
 
 function App() {
   const userDispatcher = useUserDispatcher();
   const user = useUser();
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
 
-
-    onAuthStateChanged(auth,(user) =>{
+    const unsubscribe = onAuthStateChanged(auth,(user) =>{
+      setLoader(false);
       if(user){
-        userDispatcher({type:'Sign-in',user})
+        userDispatcher({type:'sign-in',user})
       }else{
-        userDispatcher({type:'Sign-out'})
+        userDispatcher({type:'sign-out'})
       }
     });
+
+    return () => unsubscribe();
 
   }, []);
 
   return (
     <>
-      {user ? <h1>To-Do app</h1> : <SignIn />}
+      {loader ? <Loader /> :
+          user ? <h1>To-do_app</h1>: <SignIn />}
+
+
+
+
     </>
   )
 }
