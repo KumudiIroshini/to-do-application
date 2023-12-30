@@ -3,6 +3,7 @@ import {useTaskDispatcher, useTaskList} from "../context/TaskContext.tsx";
 import {useUser} from "../context/UserContext.tsx";
 import {useEffect} from "react";
 import {getAllTasks} from "../service/TaskService.tsx";
+import {Task} from "../task/Task.tsx";
 
 export function TaskList() {
 
@@ -24,7 +25,10 @@ export function TaskList() {
 
     return (
         <>
-
+            {
+                taskList.map(task =>
+                <Task key={task.id} {...task} />)
+            }
         </>
     );
 }
