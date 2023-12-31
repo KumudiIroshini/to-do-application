@@ -1,0 +1,13 @@
+header {
+    background-color: rgb(0, 139, 139);
+}
+
+img {
+    width: 90px;
+}
+
+.btn {
+    border-radius: 10px;
+    color: white;
+
+}

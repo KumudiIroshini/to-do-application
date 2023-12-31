@@ -49,7 +49,10 @@ function App() {
                 <TaskProvider>
 
                   <Form />
-                  <TaskList />
+
+
+
+                    <TaskList />
 
                 </TaskProvider>
 

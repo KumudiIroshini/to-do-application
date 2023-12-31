@@ -1,0 +1,16 @@
+.Task:hover{
+    background-color: rgb(168, 212, 212);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Task label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.Task i:hover {
+    color: red;
+    cursor: pointer;
+}
+

@@ -25,10 +25,16 @@ export function TaskList() {
 
     return (
         <>
+
             {
+
                 taskList.map(task =>
-                <Task key={task.id} {...task} />)
+                    // <div className="border border-success p-2 mb-2 border-opacity-75 m-5 p-5  p-2 text-dark bg-opacity-25">
+                        <Task key={task.id} {...task} />
+                      )
+
             }
+
         </>
     );
 }

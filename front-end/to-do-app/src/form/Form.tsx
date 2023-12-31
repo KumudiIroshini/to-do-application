@@ -25,15 +25,18 @@ export function Form() {
     }
 
     return (
-        <form onSubmit={handleSubmit}
-              className="d-flex g-2 p-2 border-bottom">
 
-            <input className="form-control"
-                   ref={txtRef}
-                   value={value}
-                   onChange={e=> setValue(e.target.value)}
-                   type="text" placeholder="Eg: Task 1"/>
-            <button className="btn btn-primary" >ADD</button>
-        </form>
+        <div className="border border-success p-2 mb-2 border-opacity-75 m-5 p-5  p-2 text-dark bg-opacity-25" >
+                <form onSubmit={handleSubmit}
+                      className="d-flex g-2 p-2">
+
+                    <input className="form-control"
+                           ref={txtRef}
+                           value={value}
+                           onChange={e=> setValue(e.target.value)}
+                           type="text" placeholder="+  ADD TASK "/>
+                    <button className="btn btn-primary" >ADD</button>
+                </form>
+        </div>
     );
 }

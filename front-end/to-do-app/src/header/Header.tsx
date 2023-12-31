@@ -1,6 +1,7 @@
 import './Header.css'
 import {signOut} from 'firebase/auth'
 import {auth} from "../firebase.ts";
+import logo from "../assets/main.png"
 
 
 export function Header() {
@@ -12,8 +13,9 @@ export function Header() {
         <>
             <header className="p-2 border-bottom d-flex justify-content-between align-items-center">
 
-                <h1 className="m-0">To-do-App</h1>
-                <button onClick={handleSignOut} className="btn btn-outline-primary btn-sm">Sign-Out</button>
+                <h1 className="align-items-center ">
+                    <img src={logo} />To Do App</h1>
+                <button onClick={handleSignOut} className="btn btn-sm">Sign-Out</button>
 
             </header>
         </>
